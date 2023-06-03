@@ -11,7 +11,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.boot.web.server.LocalServerPort;
+import org.springframework.boot.test.web.server.LocalServerPort;
 
 import es.codeurjc.test.tablonanuncios.Application;
 import io.github.bonigarcia.wdm.WebDriverManager;
@@ -46,27 +46,17 @@ public class AnuncioTest {
 	@Test
 	public void createAnuncio() throws InterruptedException {
 		driver.get("http://localhost:"+this.port+"/");
-
-		Thread.sleep(2000);
 		
 		driver.findElement(By.linkText("Nuevo anuncio")).click();
-
-		Thread.sleep(2000);
 		
 		driver.findElement(By.name("nombre")).sendKeys("Michel");
 		driver.findElement(By.name("asunto")).sendKeys("Vendo moto roja");
 		driver.findElement(By.name("comentario")).sendKeys("Un comentario muy largo...");
 		
-		Thread.sleep(2000);
-
 		driver.findElement(By.id("enviar")).click();
 		
-		Thread.sleep(2000);
-
 		driver.findElement(By.linkText("Volver al tablón")).click();
 		
-		Thread.sleep(2000);
-
 		assertNotNull(driver.findElement(By.partialLinkText("Vendo moto roja")));
 	}
 

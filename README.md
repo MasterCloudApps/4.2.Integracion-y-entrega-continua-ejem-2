@@ -1,1 +1,1 @@
-# Ejemplo 2 - GitHub Actions + Java e2e test v2
+# Github Actions with Java e2e-test
